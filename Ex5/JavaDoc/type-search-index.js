@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"queue_ex5","l":"IntQueue"},{"p":"queue_ex5","l":"LinkedQueue"},{"p":"queue_ex5","l":"LinkedQueue.QueueIterator"}]
