@@ -1,0 +1,88 @@
+1DV507, Programming and Data Structures, Spring 2020
+Assignment 2: New Java features, JUnit, Generics, and JavaFX (1)
+Problems?
+Do not hesitate to ask your teaching assistant at the practical meetings (or Jonas/Tobias at the lectures) if you have any problems. You can also post a question in the assignment forum in Moodle.
+
+Prepare Eclipse/IntelliJ for course 1DV507 and Assignment 2
+Inside your Java project named 1DV507, create a new package with the name YourLnuUserName_assign2 and save all program files for this assignment inside that package.
+
+General Assignment Rules
+Use English! All documentation, names of variables, methods, classes, and user instructions, should be in English.
+Each exercise involving more than one class should be in a separate package with a suitable (English!) name.
+All programs asking the user to provide some input should check that the user input is correct and take appropriate actions if it is not.
+Submission
+We are only interested in your .java files and please notice that the VG exercise 3 is not mandatory. You should always submit everything needed to compile and run your code. That is, apart from .java files, figures and icons that might be used in the JavaFX exercises (assignment 2 and 3) and maybe some external libraries (.jar files).
+Each student submit their assignments by creating an issue (one for each assignment) in their repository at the time of the deadline. Instructions related to GitLab are published in Moodle.
+Lecture 4 - New Java Features
+Exercise 1
+The file CountrySort.java contains a skeleton of a Java program where we want you to sort a string array containing the names of all countries in the world (a few years ago) in three different ways. The sorting should be done using the library method Arrays.sort(String[] s, Comparator<String> c) that requires a comparator function String, String ==> int to define the sorting order to be used.
+Task 1: Sort country names based on their length (longest first) and print a list of the ten countries with longest names
+Task 2: Sort country names in reverse alphabetic order and print a list of the ten first countries in that list
+Task 3: Sort country names based on the number of As (A or a) they contain print a list of the ten countries with most As
+Notice: There is not much coding needed in this exercise. You only need to define three comparator functions. Also, we expect you to download CountrySort.java, make a few changes, and than submit that file.
+
+Exercise 2
+The file FunctionPointers.java contains a skeleton of a Java program where we want you to add support for (a) apply predicates on a list of integers, and (b) apply functions on a list of doubles. Recommended steps:
+Provide an implementation to the method selectAndPrint that prints all elements in the list where a given predicate evaluates to true.
+Update the two predicates odd and aboveTen to make them recognize odd numbers and numbers that are greater than 10
+Provide an implementation to the method applyFunction that returns a new list containing the numbers resulting from applying function fx on the numbers in the input list.
+Provide a function powerOfTwo that computes the square of any input double
+Notice: Once again, there is not much coding needed in this exercise. And once again,, we expect you to download FunctionPointersSort.java, make a few changes, and than submit that file. An execution of the program once you have completed all tasks should look like:
+
+Part 1: Apply predicates
+Print all numbers: 45 3 24 16 1 1 3 8 7 6 10 12 17 22 30 
+Print all odd numbers: 45 3 1 1 3 7 17 
+Print all numbers greater than 10: 45 24 16 12 17 22 30 
+
+Part 2: Apply functions
+Original: [1.0, 16.0, 25.0, 81.0]
+Square root: [1.0, 4.0, 5.0, 9.0]
+Power of two: [1.0, 256.0, 625.0, 6561.0]
+
+Exercise 3 (VG Task)
+The (very large) file WarAndPeace.txt contains the entire text of the book War and Peace by the russian author Leo Tolstoy. Your task is to write a single-class program WarAndPeace.java that, once you have split the text into separate words, use a single Java 1.8 stream to compute the number of unique words used in the text. Words are substrings made of ordinary letters and the characters ' (as in don't) and - (as in well-known). Other type of characters (e.g. digits) should be removed from each word as well as entire words only containing such characters. Also, we do not care about upper and lower case when looking for unique words. Hence, HELLO and Hello are considered to be the same word.
+The first lines in your code should look something like:
+String text = readText("WarAndPeace.txt");   // My own method
+String[] words = text.split(" ");  // Simple split, will be cleaned up later on
+System.out.println("Initial word count: "+words.length);   // We found 577091
+		
+Stream stream = Arrays.stream(words);
+... continue here
+Lecture 5 - JUnit Testing and Generics
+Important: You must use JUnit 5. Solutions based on older versions will not be accepted.
+Exercise 4
+Write a JUnit test for the class LinkedQueue in Exercise 5, Assignment 1.
+Exercise 5
+
+In Exercise 5, Assignment 1 you were asked to provide a linked implementation of the following queue interface
+public interface IntQueue extends Iterable<Integer> {  
+   public int size();                     // current queue size 
+   public boolean isEmpty();              // true if queue is empty 
+   public void enqueue(int element);   // add element at end of queue 
+   public int dequeue();               // return and remove first element. 
+   public int first();                 // return (without removing) first element 
+   public int last();                  // return (without removing) last element 
+   public String toString();              // return a string representation of the queue content
+
+}
+Tasks:
+Provide a similar generic queue interface named Queue<T>.
+Provide a linked generic queue named LinkedQueue<T> that implements the interface Queue<T> using the head-and-tail approach.
+Write a JUnit test program QueueTest for your generic queue implementation. Make sure that you are using at least two parameter types (e.g. Integer and String) in your tests.
+You are of course allowed to reuse your own non-generic queue implementation/test from Assignment 1. However, make sure to take into account all comments given to you by your teaching assistant when he/she corrected it.
+
+Lecture 6 - JavaFX (Part 1)
+Important: You are not allowed to use any GUI builder tools in these assignments. All your code should be written by you, not generated by a tool.
+Exercise 6
+Write a program Snowman.java which creates a JavaFX Application window containing a drawing of a snowman. It should be drawn by you using the vector graphics primitives in JavaFX and not a static image. The snowman must not look exactly as in the image below, but it must consist of three differently sized circles with three buttons, stand in snow, have a face and a sun in the top. You are allowed to add to the snowman, for example a nice hat, a happy smile or a carrot nose.
+
+Exercise 7
+Create a class CompoundInterest.java that calculates a compound interest, for example for a loan or saving. You can read more about compound interest on Wikipedia. The program should allow the user to input an amount of money (in no particular currency), an interest and a number of years. At the press of the button it should calculate the total sum of money that corresponds to with compound interest.
+
+
+
+Exercise 8
+Write a GUI program Yahtzee.java that will be the beginning of a game of Yahtzee. The program should display five dice (you can find graphics on the Internet) and allow the user to roll the dice three times. For each throw, the user should be able to hold one or more of the dice, i.e. only rethrow the others. Do this by displaying check boxes below the each die, and it should only be possible to tick the box once the first throw has been made (the check boxes should be set to disabled when the program starts). The program only needs to work once, so when three throws are done, you need to restart the program to try again. When all three thows are done, the program should display if the final dice are showing one of the following: Yahtzee, Four of a kind, Three of a kind, Full House, Large Straight, Small Straight or Pair. Check the dice in that order, only one of them needs to be displayed. An example run of the game is shown below.
+
+
+
